@@ -1,0 +1,306 @@
+<!doctype html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="author" content="Made with ? by Jorge Epuñan - @csslab">
+	
+	<title>Francos Lebenslauf</title>
+	<link rel="stylesheet" href="css/cool_timeline.css" media="screen" />
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="jquery.timelinr-0.9.54.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Schoolbell&v1" rel="stylesheet">
+	<script>
+	$(function(){
+		$().timelinr({
+			arrowKeys: 'true'
+		})
+	});
+
+	function toggleVisibility(elementId) {
+	  const element = document.getElementById(elementId);
+	  if (element.style.display === "none" || element.style.display === "") {
+		element.style.display = "block";
+	  } else {
+		element.style.display = "none";
+	  }
+	}
+
+    // Add event listeners to all toggle links
+    document.querySelectorAll('.toggle-link').forEach(link => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent default link behavior
+        const targetId = link.getAttribute('data-target');
+        toggleVisibility(targetId);
+
+		
+      });
+    });
+
+    // Hide sections when clicking outside
+    document.addEventListener('click', (event) => {
+      const openSections = document.querySelectorAll('.my-section');
+      openSections.forEach(section => {
+        const isClickInside = section.contains(event.target) || event.target.dataset?.target === section.id;
+        if (!isClickInside) {
+          section.style.display = "none";
+        }
+		
+	 });
+    });
+	
+</script>
+</head>
+
+<body>
+    <header>
+        <h1>Mein Lebenslauf</h1>
+        <p>A journey sparked by curiosity and driven by a passion for robotics, computer science, and artificial intelligence.</p>
+    </header>
+	
+	<section id="timeline">
+		<ul id="dates">
+			<li><a href="#202501">Present</a></li>
+			<li><a href="#202412">Dec '24</a></li>
+			<li><a href="#202410">Nov '24</a></li>
+			<li><a href="#202409">Sept '24</a></li>
+			<li><a href="#202406">Jun '24</a></li>
+			<li><a href="#202405">Jun '24</a></li>
+			<li><a href="#202404">Apr '24</a></li>
+			<li><a href="#202403">Mar '24</a></li>
+			<li><a href="#202401">Jan '24</a></li>
+			<li><a href="#202312">Dec '23</a></li>
+			<li><a href="#202311">Nov '23</a></li>
+			<li><a href="#202310">Oct '23</a></li>
+			<li><a href="#202306">Jun '23</a></li>
+			<li><a href="#202303">Mar '23</a></li>
+			<li><a href="#202203">Mar '22</a></li>
+			<li><a href="#202112">Dec '21</a></li>
+			<li><a href="#202106">Jun '21</a></li>
+			<li><a href="#201406">Jun '14</a></li>
+			<li><a href="#200707">Jul '07</a></li>
+		</ul>
+		<ul id="issues">
+			<li id="202501">
+				<img src="images/20.png" width="256" height="256" />
+				<h1>Now</h1>
+				<p>Currently working on a 6 Degrees of Freedom Thor robot arm that uses image segmentation, depth estimation, 3D reconstruction, and reinforcement learning to perform tasks such as picking up objects.</p>
+			</li>
+			<li id="202412">
+				<img src="images/19.png" width="256" height="256" />
+				<h1>Dec 2024</h1>
+				<p>Created a 3D printed keyboard-controlled RC-Tank. I printed parts using avilable online models. I used a Raspberry Pi 5 to control the RC-Tank using ZeroMQ to communicate between my laptop and the Raspberry Pi. A script running on the laptop records input keys and sends them to the Raspberry Pi, allowing for remote control.</p>
+				<a class="toggle-link" href="#tank" data-target="tank" onclick="toggleVisibility('tank')"> Click here to watch the 3D printed Tank</a></p>
+			</li>
+			<li id="202411">
+				<img src="images/18.png" width="256" height="256" />
+				<h1>Nov 2024</h1>
+				<p>Using a CLIPSeg model created by Timo Lüddecke and Alexander Ecker, which is available in HuggingFace, I created a simple python app that takes in camera streams and prompts, and shows the images with segmented mask overlays depending on where the object in the prompt is in the image. CLIPSeg is a Zero-Shot Prompt-Based Image Segmentation model.</p>
+			</li>
+			<li id="202409">
+				<img src="images/17.png" width="256" height="256" />
+				<h1>Sept 2024</h1>
+				<p>Using Open3D and a depth estimation model available in HuggingFace (DepthAnythingV2), I created a python script that converts single or multiple RGB images into a 3D Reconstruction of the scenes. Multiple images allows for multiple angles, filling in the 3D scene better.</p>
+			</li>
+			<li id="202406">
+				<img src="images/15.png" width="256" height="256" />
+				<h1>Jun 2024</h1>
+				<p>In 11th grade, I was honored to receive the Outstanding Achievement Award in Mathematics Electives, including Computer Science, for the second consecutive year. Out of 300 students, being chosen again for this recognition was a testament to my continued dedication and excellence in these subjects. This award reflected my ongoing passion for mathematics and computer science, and I am excited to further deepen my knowledge and skills as I continue my academic journey.</p>
+			</li>
+			<li id="202405">
+				<img src="images/14.png" width="256" height="256" />
+				<h1>Jun 2024</h1>
+				<p>As a National Cyber Scholars winner and GIAC Foundational Cybersecurity Technologies (GFACT) practitioner, I have demonstrated exceptional proficiency in foundational cybersecurity concepts and practical skills. The GFACT certification validates my expertise in essential areas of computers, technology, and security fundamentals, equipping me with the knowledge and tools to address complex cybersecurity challenges. These achievements reflect my commitment to excellence in the ever-evolving field of cybersecurity and my readiness to contribute at the highest levels.</p>
+			</li>
+			<li id="202404">
+				<img src="images/13.png" width="256" height="256" />
+				<h1>Apr 2024</h1>
+				<p>In April, I had the honor of driving our robot at the Worlds Championship in Houston—a once-in-a-lifetime experience. While at Worlds, I collaborated with a Brazilian team to help them implement pneumatic coding by repurposing code from my first FRC season. Despite the language barrier—Portuguese versus Spanish—my fluency in Spanish enabled me to understand their needs and support their efforts. This moment highlighted the power of teamwork and the global nature of robotics.</p>
+			</li>
+			<li id="202403">
+				<img src="images/12.png" width="256" height="256" />
+				<h1>Mar 2024</h1>
+				<p>As lead programmer, my primary goal for Team 219 was to maximize autonomous points, a challenge we met by earning the prestigious Autonomous Award. During Week 1, we reached the finals, and in Week 4, we ranked #1 in qualifications and made it to the finals once again. Some teachers have called this the most successful season in Team 219's history—a testament to our hard work and dedication.<br>
+				<a class="toggle-link" href="#frc-2024" data-target="frc-2024" onclick="toggleVisibility('frc-2024')"> Click here to watch Autonomous</a></p>
+			</li>
+			<li id="202401">
+				<img src="images/11.png" width="256" height="256" />
+				<h1>Jan 2024</h1>
+				<p>With my brother, we designed and built an AI-Powered Plotter that utilizes an AI Art Generator through HTTP Requests to create intricate drawings from prompts. By converting image prompts into G-Code, the plotter interprets and translates the code into precise motor movements to draw the images.<br>
+				<a class="toggle-link" href="#plotter" data-target="plotter" onclick="toggleVisibility('plotter')"> AI-Powered Plotter</a></p>
+			</li>
+			<li id="202312">
+				<img src="images/10.png" width="256" height="256" />
+				<h1>Dec 2023</h1>
+				<p> I developed an augmented reality app in Unity to visualize furniture and other objects in real-world settings. Users are capable of moving around the furniture while it remains in place. The app works on Android and uses AR-Core<br>
+				<a class="toggle-link" href="#augmented" data-target="augmented" onclick="toggleVisibility('augmented')">Augmented Reality 3D Object Placer</a></p>
+			</li>			
+			<li id="202311">
+				<img src="images/9.png" width="256" height="256" />
+				<h1>Nov 2023</h1>
+				<p>With my brother, we created an Inverted Pendulum, a challenging project in dynamics and control systems. While my brother focused on the mechanical build, I trained a Deep Q-Network (DQN) model through Reinforcement Learning to stabilize the pendulum in an upright position. The model is capable of maintaining the pendulum in an upright position for split seconds, though requires further training. Once we fix the current motor issues with the pendulum, we will use simulation software to improve its training accuracy, as it currently has very limited training data.<br>
+				<a class="toggle-link" href="#pendulum" data-target="pendulum" onclick="toggleVisibility('pendulum')">Reinforcement-Learning Inverted Pendulum</a></p>
+			</li>
+			<li id="202310">
+				<img src="images/8.png" width="256" height="256" />
+				<h1>Oct 2023</h1>
+				<p>With my brother, we created an Arduino-based self-balancing Segway, focusing on stability and Bluetooth phone control. I primarily focused on overcoming challenges with Bluetooth connectivity, and programming an app for remote control, along with programming the segway's functionality. The segway maintains an upright position using a PID Loop that runs locally on the Arduino. The app works by reading the phones tilt, which when tilted forward sets the new target angle for the PID loop to maintain. So that when it is tilted forward, the segway matches this forward tilt and moves forward.<br>
+				<a class="toggle-link" href="#segway" data-target="segway" onclick="toggleVisibility('segway')"> Click here to watch the Segway</a></p>
+			</li>
+			<li id="202306">
+				<img src="images/7.png" width="256" height="256" />
+				<h1>Jun 2023</h1>
+				<p>In June 2023, I was honored with the Outstanding Achievement Award in Mathematics Electives, including Computer Science. This recognition highlighted my dedication and passion for these subjects, reflecting my commitment to academic excellence and problem-solving skills. It’s a testament to my continuous growth in both mathematical concepts and the field of computer science.</p>
+			</li>
+			<li id="202303">
+				<img src="images/6.png" width="256" height="256" />
+				<h1>Mar 2023</h1>
+				<p>In the 2023 Charged UP season, we achieved notable successes, including a strong performance at the Week 2 FMA District Mount Olive Event, where our autonomous programming helped us rank 13th. We were honored with the Gracious Professionalism Award for supporting Team 7045. At the Week 4 FMA District Warren Hills Event, we won the Innovation in Controller Award for our 3D-printed controller.<br>
+				<a class="toggle-link" href="#frc-2023" data-target="frc-2023" onclick="toggleVisibility('frc-2023')"> Click here to watch the Controller in action</a></p>
+			</li>
+			<li id="202203">
+				<img src="images/5.png" width="256" height="256" />
+				<h1>Mar 2022</h1>
+				<p>Our first FRC (First Robotics Competition) event was unforgettable. Despite being a newly formed team navigating the challenges of COVID, I took on dual roles as lead programmer and driver during my freshman year. Against all odds, we earned the Excellence in Engineering Award, marking the 10th robotics award for Warren Hills and setting the foundation for future success.</p>
+			</li>
+			<li id="202112">
+				<img src="images/4.png" width="256" height="256" />
+				<h1>Dec 2021</h1>
+				<p>During my freshman year, I explored programming through the Carnegie Mellon Computer Science Academy's CS1: Introduction to Programming with Python—a robust introduction to coding through graphics and animations.<br>
+				<a class="toggle-link" href="#my-python" data-target="my-python" onclick="toggleVisibility('my-python')"> Click here to view my Python Projects</a></p>
+			</li>
+			<li id="202106">
+				<img src="images/3.png" width="256" height="256" />
+				<h1>Jun 2021</h1>
+				<p>In June 2021, I earned the Principal's Honor Roll Award for achieving academic excellence throughout middle school, all while finishing 8th grade remotely due to COVID. This experience strengthened my discipline and work ethic, proving that I can excel in any environment—whether in the classroom or from home.</p>
+			</li>
+			<li id="201406">
+				<img src="images/2.png" width="256" height="256" />
+				<h1>Jun 2014</h1>
+				<p>June 2014 marked the start of my coding journey as I began developing apps with MIT App Inventor. It was like unlocking a new superpower—building technology with technology—sparking my passion for programming and shaping my future in AI and robotics.</p>
+			</li>
+			<li id="200707">
+				<img src="images/1.png" width="256" height="256" />
+				<h1>Jul 2007</h1>
+				<p>I was born as v2.0</p>
+				!<-- —a major upgrade, according to my parents, who claim they fixed some bugs but introduced a few new ones. They always joke that my constant need for acknowledgment made me their little TCP protocol in action. -->
+			</li>
+		</ul>
+		<div id="grad_left"></div>
+		<div id="grad_right"></div>
+		<a href="#" id="next">+</a>
+		<a href="#" id="prev">-</a>
+	</section>
+	<section id="my-python" style="display: none;" class="my-section">
+	 <ul id="my-pp">
+		<li class="python-projects">
+			<iframe width="410" height="460" src="https://academy.cs.cmu.edu/sharing/gainsboroPig6962/embed"> 
+			</iframe> 
+			<div>
+				<h1>SpongeBob</h1>
+				<p>Believe it or not, this is not an image.</p>
+				<p>Everything is a line of code. How cool is that?</p>
+			</div>
+		</li>
+		<li class="python-projects">
+			<iframe width="410" height="460"  src="https://academy.cs.cmu.edu/sharing/deepPinkBear2239/embed"> 
+			</iframe> 
+			<h1>Dancing Dodge</h1>
+			<p>Make me dance!! Adding some movement to the code. </p>
+			<p>Click the left button of the mouse and make me dance!</p>
+		</li>
+		<li class="python-projects">
+			<iframe width="410" height="460" src="https://academy.cs.cmu.edu/sharing/mistyRoseBear1983/embed"> 
+			</iframe> 
+			<h1>Scratch Ticket</h1>
+			<p>Try your luck! </p>
+			<p>Scratch 3, you win if you get two "buddies" of the same color.</p>
+		</li>
+		<li class="python-projects">
+			<iframe width="410" height="460" src="https://academy.cs.cmu.edu/sharing/floralWhiteBear3400/embed"> 
+			</iframe> 
+			<h1>Star Wars</h1>
+			<p>Looking for some action?</p>
+			<p>Dive into my galaxy!</p>
+		</li>
+		<li class="python-projects">
+			<iframe width="410" height="460" src="https://academy.cs.cmu.edu/sharing/linenGoat4755/embed">
+			</iframe> 
+			<h1>Tetris</h1>
+			<p>Tetris ++.</p>
+			<p>See how many lines you can make.</p>
+		</li>		
+	 </ul>
+	</section>
+	<section id="frc-2023" style="display: none;" class="my-section">
+	<div class="video-container">
+		<object
+			data="https://www.youtube.com/embed/UW9BAwfiui0"
+			type="text/html"
+			width="640"
+			height="360">
+		</object>
+	</div>
+	</section>
+	<section id="frc-2024" style="display: none;" class="my-section">
+	<div class="video-container">
+		<object
+			data="https://www.youtube.com/embed/5bZvX4eLdt8"
+			type="text/html"
+			width="640"
+			height="360">
+		</object>
+	</div>
+	</section>	
+	<section id="segway" style="display: none;" class="my-section">
+	<div class="video-container">
+		<object
+			data="https://www.youtube.com/embed/lKY3XLRqrV0"
+			type="text/html"
+			width="640"
+			height="360">
+		</object>
+	</div>
+	</section>
+	<section id="pendulum" style="display: none;" class="my-section">
+	<div class="video-container">
+		<object
+			data="https://www.youtube.com/embed/h07S80x_3c0"
+			type="text/html"
+			width="640"
+			height="360">
+		</object>
+	</div>
+	</section>
+	<section id="plotter" style="display: none;" class="my-section">
+	<div class="video-container">
+		<object
+			data="https://www.youtube.com/embed/4y6E_mk1xVU"
+			type="text/html"
+			width="640"
+			height="360">
+		</object>
+	</div>
+	</section>
+	<section id="augmented" style="display: none;" class="my-section">
+	<div class="video-container">
+		<object
+			data="https://www.youtube.com/embed/L0TLXLwI-yk"
+			type="text/html"
+			width="640"
+			height="360">
+		</object>
+	</div>
+	</section>	
+	<section id="tank" style="display: none;" class="my-section">
+	<div class="video-container">
+		<object
+			data="https://www.youtube.com/embed/dlcWHkem0kQ"
+			type="text/html"
+			width="640"
+			height="360">
+		</object>
+	</div>
+	</section>	
+</body>
+</html>
