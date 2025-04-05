@@ -5,6 +5,17 @@
 	<meta name="author" content="Made with ? by Jorge Epuñan - @csslab">
 	
 	<title>Francos Lebenslauf</title>
+    <style>
+        /* When printing, ensure links show as URLs */
+        @media print {
+            a {
+                text-decoration: none;
+                color: black; /* Make the link appear as black text */
+                /* Display the URL in the print version */
+                content: attr(href);
+            }
+        }
+    </style>
 	<link rel="icon" type="image/x-icon" href="images/favicon.ico">
 	<link rel="stylesheet" href="css/cool_timeline.css" media="screen" />
 	
@@ -58,8 +69,10 @@
         <h1>Mein Lebenslauf</h1>
         <p>A journey sparked by curiosity and driven by a passion for robotics, computer science, and artificial intelligence.</p>
 		<p>Check out my portfolio pages from school below:</p>
-		<p>https://sites.google.com/warrenhills.org/advancedtopicsincs/students-projects/202425/franco-g</p>
-		<p>https://sites.google.com/warrenhills.org/advancedtopicsincs/students-projects/202324/franco-g</p>
+
+        <!-- Display custom text, but print the actual URL -->
+		<p><a href="https://sites.google.com/warrenhills.org/advancedtopicsincs/students-projects/202425/franco-g" target="_blank" title="https://sites.google.com/warrenhills.org/advancedtopicsincs/students-projects/202425/franco-g">Advanced Topics 2024-2025</a></p>
+        <p><a href="https://sites.google.com/warrenhills.org/advancedtopicsincs/students-projects/202324/franco-g" target="_blank" title="https://sites.google.com/warrenhills.org/advancedtopicsincs/students-projects/202324/franco-g">Advanced Topics 2023-2024</a></p>
     </header>
 	
 	<section id="timeline">
